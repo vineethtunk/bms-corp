@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page by Vineeth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #9aa0b5;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .status {
+            display: inline-block;
+            background: rgba(0, 255, 128, 0.15);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        .demo-section {
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 114, 255, 0.4);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.25);
+            min-height: 24px;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #7dd3fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="status">● Page loaded successfully</span>
+        <h1>Test Page by Vineeth</h1>
+        <p class="subtitle">A simple sandbox for testing HTML, CSS, and JavaScript.</p>
+
+        <div class="demo-section">
+            <input type="text" id="nameInput" placeholder="Type something and click the button...">
+            <button onclick="showMessage()">Run Test</button>
+            <div id="output">Output will appear here.</div>
+        </div>
+
+        <footer>
+            Built for testing &middot; <code>~whoami</code> &rarr; vineeth
+        </footer>
+    </div>
+
+    <script>
+        function showMessage() {
+            const value = document.getElementById('nameInput').value.trim();
+            const output = document.getElementById('output');
+
+            if (value === '') {
+                output.textContent = 'Please enter some text first.';
+                output.style.color = '#f87171';
+            } else {
+                // textContent (not innerHTML) safely renders input as plain text
+                output.textContent = 'You entered: ' + value;
+                output.style.color = '#4ade80';
+            }
+        }
+
+        // Allow Enter key to trigger the test
+        document.getElementById('nameInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') showMessage();
+        });
+
+        console.log('Test Page by Vineeth loaded at', new Date().toISOString());
+    </script>
+</body>
+</html>
